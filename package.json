@@ -1,0 +1,14 @@
+{
+  "name": "raaye-web",
+  "version": "1.0.0",
+  "description": "Raaye - LinkedIn Content Engine",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["raaye", "linkedin", "content"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {}
+}

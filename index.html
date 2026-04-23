@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raaye - LinkedIn Content Engine</title>
+    <link rel="icon" type="image/png" href="/raaye-fav.png">
+    <link rel="shortcut icon" type="image/png" href="/raaye-fav.png">    <script src="https://cdn.tailwindcss.com"></script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WCZJ5VPJ');</script>
+
+    <script>
+      tailwind.config = {
+        important: '#root',
+      }
+    </script>
+    
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+        
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCZJ5VPJ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        // --- Lucide Icons Setup ---
+        const Icon = ({ children, className = "", size = 24 }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                {children}
+            </svg>
+        );
+
+        const Menu = (props) => <Icon {...props}><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></Icon>;
+        const X = (props) => <Icon {...props}><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></Icon>;
+        const Calendar = (props) => <Icon {...props}><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></Icon>;
+        const MessageSquare = (props) => <Icon {...props}><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></Icon>;
+        const BrainCircuit = (props) => <Icon {...props}><path d="M12 4.5a2.5 2.5 0 0 0-4.96-.46 2.5 2.5 0 0 0-1.98 3 2.5 2.5 0 0 0-1.32 4.24 3 3 0 0 0 .34 5.58 2.5 2.5 0 0 0 2.96 3.08 2.5 2.5 0 0 0 4.91.05L12 20V4.5z"/><path d="M16 8V5c0-1.1.9-2 2-2"/><path d="M12 13h4"/><path d="M12 18h6a2 2 0 0 1 2 2v1"/><path d="M12 8h8"/></Icon>;
+        const UserCheck = (props) => <Icon {...props}><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></Icon>;
+        const ArrowRight = (props) => <Icon {...props}><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></Icon>;
+        const CheckCircle2 = (props) => <Icon {...props}><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></Icon>;
+        const TrendingUp = (props) => <Icon {...props}><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></Icon>;
+        const Clock = (props) => <Icon {...props}><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></Icon>;
+        const Star = (props) => <Icon {...props}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></Icon>;
+        const Layout = (props) => <Icon {...props}><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><line x1="3" x2="21" y1="9" y2="9"/><line x1="9" x2="9" y1="21" y2="9"/></Icon>;
+        const Edit3 = (props) => <Icon {...props}><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></Icon>;
+        const Smartphone = (props) => <Icon {...props}><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></Icon>;
+        const BarChart3 = (props) => <Icon {...props}><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></Icon>;
+        const Award = (props) => <Icon {...props}><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></Icon>;
+        const ChevronDown = (props) => <Icon {...props}><polyline points="6 9 12 15 18 9"/></Icon>;
+        const Rocket = (props) => <Icon {...props}><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></Icon>;
+        const Lightbulb = (props) => <Icon {...props}><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></Icon>;
+        const Target = (props) => <Icon {...props}><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></Icon>;
+        const Briefcase = (props) => <Icon {...props}><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></Icon>;
+
+        // Placeholder image generator
+        const placeholderImg = (text) => `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect fill='%23e2e8f0' width='800' height='600'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='%23334155' text-anchor='middle' dominant-baseline='middle' font-family='Inter, sans-serif'%3E${encodeURIComponent(text)}%3C/text%3E%3C/svg%3E`;
+
+        // --- App Component ---
+        const App = () => {
+            const [isMenuOpen, setIsMenuOpen] = useState(false);
+            const [openFaq, setOpenFaq] = useState(null);
+
+            const faqs = [
+                {
+                    question: "Is there a free trial?",
+                    answer: "Yes. Raaye offers a 7-day free trial for you to explore how it generates LinkedIn posts, visuals, and engagement insights, without entering your credit card details. This lets you experience how Raaye turns your ideas into ready-to-share content before committing to a paid plan."
+                },
+                {
+                    question: "Can I cancel my subscription anytime?",
+                    answer: "Yes. Raaye subscriptions are flexible and can be cancelled at any time. If you cancel, you'll continue to have access to your plan until the end of your current billing cycle."
+                },
+                {
+                    question: "Is it safe to connect my LinkedIn account?",
+                    answer: "Yes. Raaye securely connects to your LinkedIn profile to understand your professional voice and personalize your content. Your data is never sold or shared with third parties, and you remain in full control of what gets published. Raaye only uses your profile information to generate relevant posts, visuals, and insights tailored to your expertise. Your account stays 100% safe and compliant with LinkedIn's terms."
+                },
+                {
+                    question: "What makes Raaye different from other LinkedIn content generation tools?",
+                    answer: "Most tools focus only on writing posts. Raaye helps you manage your entire LinkedIn presence, from generating content and visuals to scheduling posts, engaging with your feed, and tracking performance. It's designed as a LinkedIn growth engine, not just a content generator."
+                },
+                {
+                    question: "Will the posts still feel like my authentic voice?",
+                    answer: "Yes. Raaye studies your LinkedIn profile to capture your professional voice and perspective. The posts it generates are tailored to your expertise, and you can always choose from multiple variations or edit the tone to ensure the final post feels authentic to you."
+                }
+            ];
+
+            return (
+                <div className="font-sans text-slate-900 bg-white min-h-screen selection:bg-blue-100 selection:text-blue-900">
+                    
+                    {/* Navigation */}
+                    <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-100">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="flex justify-between items-center h-20">
+                                <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer group">
+                                    <img
+                                        src="raaye-dark.png"
+                                        alt="Raaye Logo"
+                                        className="h-9 w-auto group-hover:scale-105 transition-transform"
+                                    />
+                                </div>
+                                <div className="hidden md:flex items-center space-x-8">
+                                    <a href="#features" className="text-slate-600 hover:text-blue-600 font-medium transition-colors">How it Works</a>
+                                    <a href="#audience" className="text-slate-600 hover:text-blue-600 font-medium transition-colors">Who it's For</a>
+                                    <a 
+                                      href="https://play.google.com/store/apps/details?id=socials.productivity.ai" 
+                                      target="_blank" 
+                                      rel="noopener noreferrer"
+                                      className="!bg-blue-600 hover:!bg-blue-700 !text-white !border-none !outline-none px-5 py-2.5 rounded-lg font-semibold transition-all shadow-sm hover:shadow flex items-center gap-2 inline-flex"
+                                    >
+                                      Get the App <ArrowRight className="w-4 h-4" />
+                                    </a>
+                                </div>
+
+                                <div className="md:hidden flex items-center">
+                                    <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-slate-600 hover:text-slate-900 !border-none !outline-none !bg-transparent">
+                                        {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Mobile menu */}
+                        {isMenuOpen && (
+                            <div className="md:hidden bg-white border-b border-slate-100 px-4 pt-2 pb-6 space-y-4 shadow-lg absolute w-full">
+                                <a href="#features" className="block text-slate-600 font-medium py-2">How it Works</a>
+                                <a href="#audience" className="block text-slate-600 font-medium py-2">Who it's For</a>
+                                <button className="w-full !bg-blue-600 hover:!bg-blue-700 !text-white !border-none !outline-none px-6 py-3 rounded-lg font-semibold flex justify-center items-center gap-2 mt-4 transition-colors">
+                                    Get the App <ArrowRight className="w-4 h-4" />
+                                </button>
+                            </div>
+                        )}
+                    </nav>
+
+                    {/* Hero Section */}
+                    <section className="pt-32 pb-16 md:pt-40 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center overflow-hidden">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-slate-600 font-medium text-sm mb-8 shadow-sm">
+                            <span className="text-amber-500">★</span> Professional Branding Made Easy
+                        </div>
+
+                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.1] mb-6">
+                            Become the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">top 1% of profiles</span> on LinkedIn.
+                        </h1>
+                        
+                        <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto mb-10">
+                            Let our AI engine generate personalized post ideas, auto-craft engaging content, and help build your professional presence all in one simple platform.
+                        </p>
+
+                        <div className="flex flex-wrap justify-center gap-3 mb-10">
+                            <span className="px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-bold tracking-wide uppercase border border-blue-100 flex items-center gap-2">
+                                <CheckCircle2 className="w-4 h-4" /> Share an Idea
+                            </span>
+                            <span className="px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-bold tracking-wide uppercase border border-blue-100 flex items-center gap-2">
+                                <CheckCircle2 className="w-4 h-4" /> Auto-Create Posts
+                            </span>
+                            <span className="px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-bold tracking-wide uppercase border border-blue-100 flex items-center gap-2">
+                                <CheckCircle2 className="w-4 h-4" /> Grow Your Network
+                            </span>
+                        </div>
+
+                        <div className="flex flex-col items-center gap-5 mb-12">
+                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
+                                
+                                <a 
+                                  href="https://play.google.com/store/apps/details?id=socials.productivity.ai" 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="w-full sm:w-auto flex items-center justify-center gap-3 !bg-slate-900 hover:!bg-slate-800 !text-white !border-slate-700 !outline-none px-8 py-3.5 rounded-xl transition-all shadow-lg hover:shadow-xl group"
+                                >
+                                  <svg className="w-7 h-7" viewBox="0 0 512 512" fill="currentColor">
+                                    <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
+                                  </svg>
+                                  <div className="text-left">
+                                    <div className="text-[10px] font-semibold leading-none mb-1 opacity-80">GET IT ON</div>
+                                    <div className="text-sm font-bold leading-none">Google Play</div>
+                                  </div>
+                                </a>
+                            </div>
+                            <div className="flex items-center gap-4 text-sm text-slate-500 font-medium">
+                                <span className="flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-green-500" /> No credit card required</span>
+                                <span className="flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-green-500" /> 7-day free trial</span>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 border-t border-slate-100">
+                            <div className="flex -space-x-3">
+    {[
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop",
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop"
+    ].map((url, i) => (
+        <div 
+            key={i} 
+            className="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center overflow-hidden bg-slate-200 shadow-sm"
+        >
+            <img 
+                src={url} 
+                alt={`User ${i + 1}`} 
+                className="w-full h-full object-cover" 
+            />
+        </div>
+    ))}
+</div>
+                            <div className="text-left flex flex-col items-center sm:items-start">
+                                <div className="flex gap-1 text-amber-400 mb-1">
+                                    <Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" />
+                                </div>
+                                <p className="text-sm font-medium text-slate-600">Loved by <span className="text-slate-900 font-bold">10,000+</span> professionals</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* App Mockup */}
+                    <section className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto mb-24 relative">
+                        <div className="absolute inset-0 bg-gradient-to-b from-blue-50 to-white rounded-3xl transform -skew-y-2 -z-10"></div>
+                        <img
+                            src="/front-lg3.png"
+                            alt="Raaye Content Engine"
+                            className="bg-white border border-slate-200 rounded-2xl shadow-2xl w-full h-auto"
+                        />
+                    </section>
+
+                    {/* How it works */}
+                    <section id="how-it-works" className="py-24 bg-white">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="text-center mb-16">
+                                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Get started with Raaye</h2>
+                                <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                                    Go from a blank screen to a fully scheduled content calendar in minutes.
+                                </p>
+                            </div>
+
+                            <div className="grid md:grid-cols-3 gap-8 relative">
+                                <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-slate-100 -z-10"></div>
+                                
+                                <div className="relative text-center pt-4 group cursor-pointer">
+                                    <div className="w-16 h-16 mx-auto bg-blue-50 group-hover:bg-blue-600 border-4 border-white text-blue-600 group-hover:text-white rounded-full flex items-center justify-center font-bold text-xl shadow-sm group-hover:shadow-md group-hover:shadow-blue-600/20 mb-6 transition-all duration-300">1</div>
+                                    <h3 className="text-xl font-bold text-slate-900 mb-3">Share your expertise</h3>
+                                    <p className="text-slate-600 leading-relaxed">Connect your LinkedIn, and Raaye learns your unique professional voice in seconds. Let Raaye create content that suits your profile.</p>
+                                </div>
+
+                                <div className="relative text-center pt-4 group cursor-pointer">
+                                    <div className="w-16 h-16 mx-auto bg-blue-50 group-hover:bg-blue-600 border-4 border-white text-blue-600 group-hover:text-white rounded-full flex items-center justify-center font-bold text-xl shadow-sm group-hover:shadow-md group-hover:shadow-blue-600/20 mb-6 transition-all duration-300">2</div>
+                                    <h3 className="text-xl font-bold text-slate-900 mb-3">Review your polished post</h3>
+                                    <p className="text-slate-600 leading-relaxed">Raaye instantly structures your insight into a high-performing text post, perfectly matched to your professional tone.</p>
+                                </div>
+
+                                <div className="relative text-center pt-4 group cursor-pointer">
+                                    <div className="w-16 h-16 mx-auto bg-blue-50 group-hover:bg-blue-600 border-4 border-white text-blue-600 group-hover:text-white rounded-full flex items-center justify-center font-bold text-xl shadow-sm group-hover:shadow-md group-hover:shadow-blue-600/20 mb-6 transition-all duration-300">3</div>
+                                    <h3 className="text-xl font-bold text-slate-900 mb-3">Schedule and grow</h3>
+                                    <p className="text-slate-600 leading-relaxed">Approve the post and drop it into your calendar. Set up your entire week of authority-building content in one sitting.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Features Deep Dive */}
+                    <section id="features" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-100 bg-slate-50/50">
+                        <div className="space-y-15 md:space-y-32">
+                            
+                          <div className="flex flex-col md:flex-row items-center min-h-0">
+  <div className="flex-1 lg:pr-6 space-y-6 flex flex-col justify-center min-w-0">
+    <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 leading-[1.15] tracking-tight">
+      Turn a quick thought into <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">personalized posts</span>
+    </h2>
+    <p className="text-lg text-slate-700 leading-relaxed font-medium">
+      Share a simple observation or choose from Raaye's generated topics, and our AI engine instantly generates three distinct posts tailored to your specific professional background and goals.
+    </p>
+    <ul className="space-y-4 pt-2">
+      <li className="flex items-start gap-3">
+        <div className="w-2 h-2 rounded-full bg-slate-800 mt-2 shrink-0"></div>
+        <span className="text-slate-700 text-lg">Raaye AI analyzes your LinkedIn profile to capture your voice.</span>
+      </li>
+      <li className="flex items-start gap-3">
+        <div className="w-2 h-2 rounded-full bg-slate-800 mt-2 shrink-0"></div>
+        <span className="text-slate-700 text-lg">Choose from three unique variations to share your insight.</span>
+      </li>
+      <li className="flex items-start gap-3">
+        <div className="w-2 h-2 rounded-full bg-slate-800 mt-2 shrink-0"></div>
+        <span className="text-slate-700 text-lg">Fine-tune your output instantly by adjusting tone or style.</span>
+      </li>
+    </ul>
+  </div>
+  <div className="flex-1 lg:pl-6 flex items-center justify-start min-w-0">
+    <img src="/3variants2.png" alt="3 Variants of Generated Posts" className="w-auto h-auto mb-10 md:mb-0 mt-10 md:mt-5" />
+  </div>
+</div>
+
+<div className="flex flex-col md:flex-row items-center min-h-0">
+  <div className="flex-1 lg:pr-6 order-2 md:order-1 flex items-center justify-end min-w-0">
+    <img 
+      src="/scheduleai2.png"
+      alt="Content Strategy Schedule" 
+      className="w-auto h-auto mb-10 md:mb-0 mt-10 md:mt-5"
+    />
+  </div>
+  <div className="flex-1 lg:pl-6 order-1 md:order-2 space-y-6 flex flex-col justify-center min-w-0">
+    <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 leading-[1.15] tracking-tight">
+      Build a full <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-purple-400">content calendar</span> in minutes
+    </h2>
+    <p className="text-lg text-slate-700 leading-relaxed font-medium">
+      Set up your entire month of content in one sitting. Raaye generates a strategic mix of post types to maximize your algorithmic reach.
+    </p>
+    <ul className="space-y-4 pt-2">
+      <li className="flex items-start gap-3">
+        <div className="w-2 h-2 rounded-full bg-slate-800 mt-2 shrink-0"></div>
+        <span className="text-slate-700 text-lg">AI schedules posts for optimal engagement times.</span>
+      </li>
+      <li className="flex items-start gap-3">
+        <div className="w-2 h-2 rounded-full bg-slate-800 mt-2 shrink-0"></div>
+        <span className="text-slate-700 text-lg">Auto-generate AI images and infographics to complement text.</span>
+      </li>
+      <li className="flex items-start gap-3">
+        <div className="w-2 h-2 rounded-full bg-slate-800 mt-2 shrink-0"></div>
+        <span className="text-slate-700 text-lg">Maintain a consistent posting cadence without daily manual effort.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div className="flex flex-col md:flex-row items-center min-h-0">
+  <div className="flex-1 lg:pr-6 space-y-6 flex flex-col justify-center min-w-0">
+    <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 leading-[1.15] tracking-tight">
+      Stay visible with <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-green-400">1-click engagement</span>
+    </h2>
+    <p className="text-lg text-slate-700 leading-relaxed font-medium">
+      Maintain a highly visible presence without the endless scroll. We curate the feed so you only see what matters.
+    </p>
+    <ul className="space-y-4 pt-2">
+      <li className="flex items-start gap-3">
+        <div className="w-2 h-2 rounded-full bg-slate-800 mt-2 shrink-0"></div>
+        <span className="text-slate-700 text-lg">Daily global and industry-specific trending news tailored to you.</span>
+      </li>
+      <li className="flex items-start gap-3">
+        <div className="w-2 h-2 rounded-full bg-slate-800 mt-2 shrink-0"></div>
+        <span className="text-slate-700 text-lg">See a curated feed of high-value posts from leaders in your field.</span>
+      </li>
+      <li className="flex items-start gap-3">
+        <div className="w-2 h-2 rounded-full bg-slate-800 mt-2 shrink-0"></div>
+        <span className="text-slate-700 text-lg">AI drafts contextual, intelligent comments for 1-click approval.</span>
+      </li>
+    </ul>
+  </div>
+  <div className="flex-1 lg:pl-6 flex items-center justify-start min-w-0">
+    <img 
+      src="/todays-feed2.png"
+      alt="Trending Industry News Feed" 
+      className="w-auto md:w-[584px] h-auto md:scale-[1.1] mb-10 md:mb-0 pt-10 md:pt-5"
+    />
+  </div>
+</div>
+
+<div className="flex flex-col md:flex-row items-center min-h-0">
+  <div className="flex-1 lg:pr-6 order-2 md:order-1 flex items-center justify-end min-w-0">
+    <img 
+      src="/statistics3.png"
+      alt="Profile Statistics" 
+      className="w-auto md:w-[584px] h-auto md:scale-[1.1] mb-10 md:mb-0 pt-10 md:pt-5"
+    />
+  </div>
+  <div className="flex-1 lg:pl-6 order-1 md:order-2 space-y-6 flex flex-col justify-center min-w-0">
+    <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 leading-[1.15] tracking-tight">
+      Track growth and <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-indigo-400">optimize your profile</span>
+    </h2>
+    <p className="text-lg text-slate-700 leading-relaxed font-medium">
+      Go beyond posting. Raaye evaluates your entire presence to ensure you're capturing the inbound leads and opportunities you deserve.
+    </p>
+    <ul className="space-y-4 pt-2">
+      <li className="flex items-start gap-3">
+        <div className="w-2 h-2 rounded-full bg-slate-800 mt-2 shrink-0"></div>
+        <span className="text-slate-700 text-lg">Get an actionable Profile Completion Score with tailored recommendations.</span>
+      </li>
+      <li className="flex items-start gap-3">
+        <div className="w-2 h-2 rounded-full bg-slate-800 mt-2 shrink-0"></div>
+        <span className="text-slate-700 text-lg">Monitor your professional insights (reach, likes, comments, shares).</span>
+      </li>
+      <li className="flex items-start gap-3">
+        <div className="w-2 h-2 rounded-full bg-slate-800 mt-2 shrink-0"></div>
+        <span className="text-slate-700 text-lg">Use data-driven insights to grow your professional influence.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+                        </div>
+                    </section>
+
+                    {/* Audience Section */}
+                    <section id="audience" className="py-24 bg-slate-900 text-white border-t border-slate-800">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="text-center mb-16">
+                                <h2 className="text-3xl md:text-4xl font-bold mb-4">Join the top 1% of LinkedIn creators in 30 days</h2>
+                                <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed">
+                                    Built for ambitious professionals who want to scale their influence and attract high-value opportunities without sacrificing their schedule.
+                                </p>
+                                <a 
+                                  href="https://play.google.com/store/apps/details?id=socials.productivity.ai" 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="inline-block !bg-blue-600 hover:!bg-blue-700 !text-white !border-none !outline-none px-8 py-3.5 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl shadow-blue-600/20 text-center"
+                                >
+                                  Download the App Now
+                                </a>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                                <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors group flex flex-col sm:flex-row gap-6 items-start">
+                                    <div className="w-12 h-12 shrink-0 bg-slate-700 rounded-xl flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+                                        <Rocket className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold mb-2 text-white">Founders & CXOs</h3>
+                                        <p className="text-slate-400 leading-relaxed">Turn your insights into authority-building content that attracts customers and partnerships.</p>
+                                    </div>
+                                </div>
+                                <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors group flex flex-col sm:flex-row gap-6 items-start">
+                                    <div className="w-12 h-12 shrink-0 bg-slate-700 rounded-xl flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+                                        <Lightbulb className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold mb-2 text-white">Consultants & Advisors</h3>
+                                        <p className="text-slate-400 leading-relaxed">Share your expertise consistently and generate inbound leads.</p>
+                                    </div>
+                                </div>
+                                <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors group flex flex-col sm:flex-row gap-6 items-start">
+                                    <div className="w-12 h-12 shrink-0 bg-slate-700 rounded-xl flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+                                        <Target className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold mb-2 text-white">Sales & Marketing Professionals</h3>
+                                        <p className="text-slate-400 leading-relaxed">Stay visible with prospects and build trust with your audience.</p>
+                                    </div>
+                                </div>
+                                <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors group flex flex-col sm:flex-row gap-6 items-start">
+                                    <div className="w-12 h-12 shrink-0 bg-slate-700 rounded-xl flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+                                        <Briefcase className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold mb-2 text-white">Job Seekers & Career Builders</h3>
+                                        <p className="text-slate-400 leading-relaxed">Showcase your knowledge and attract opportunities from recruiters.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Testimonials */}
+                    <section className="py-24 bg-white border-b border-slate-100">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="text-center mb-16">
+                                <h2 className="text-3xl font-bold text-slate-900">Loved by professionals, not just influencers.</h2>
+                                <p className="text-lg text-slate-600 mt-2">See how real experts are taking back their time and owning their narrative.</p>
+                            </div>
+                            <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                                <div className="p-8 bg-white shadow-lg rounded-2xl border border-slate-100">
+                                    <div className="flex text-amber-400 mb-4">
+                                        <Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" />
+                                    </div>
+                                    <p className="text-slate-800 font-medium text-lg leading-relaxed mb-6 italic">"I wish I had this system a long time ago. I finally have a presence that works while I'm stuck in back-to-back product meetings."</p>
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-10 h-10 bg-slate-200 rounded-full flex items-center justify-center font-bold text-slate-600">SM</div>
+                                        <div>
+                                            <p className="font-bold text-slate-900 text-sm">Sarah Mitchell</p>
+                                            <p className="text-xs text-slate-500">Senior Product Manager</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="p-8 bg-white shadow-lg rounded-2xl border border-slate-100">
+                                    <div className="flex text-amber-400 mb-4">
+                                        <Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" />
+                                    </div>
+                                    <p className="text-slate-800 font-medium text-lg leading-relaxed mb-6 italic">"Landed 3 recruiter DMs in one week without applying. Raaye turned my messy technical notes into engaging insights."</p>
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-10 h-10 bg-slate-200 rounded-full flex items-center justify-center font-bold text-slate-600">DA</div>
+                                        <div>
+                                            <p className="font-bold text-slate-900 text-sm">David Alarie</p>
+                                            <p className="text-xs text-slate-500">Lead Data Analyst</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="p-8 bg-white shadow-lg rounded-2xl border border-slate-100">
+                                    <div className="flex text-amber-400 mb-4">
+                                        <Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" />
+                                    </div>
+                                    <p className="text-slate-800 font-medium text-lg leading-relaxed mb-6 italic">"It's not a second job; it's a 15-minute habit. I set up my entire month of content on a Sunday morning."</p>
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-10 h-10 bg-slate-200 rounded-full flex items-center justify-center font-bold text-slate-600">MC</div>
+                                        <div>
+                                            <p className="font-bold text-slate-900 text-sm">Marcus Chen</p>
+                                            <p className="text-xs text-slate-500">Agency Founder</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* FAQ Section */}
+                    <section className="py-24 bg-slate-50 border-b border-slate-100">
+                        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="text-center mb-12">
+                                <h2 className="text-3xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
+                                <p className="text-lg text-slate-600">Everything you need to know about the Raaye platform.</p>
+                            </div>
+                            <div className="space-y-4">
+                                {faqs.map((faq, index) => (
+                                    <div key={index} className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm transition-all hover:border-blue-200">
+                                        <button
+                                            className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none !bg-transparent !border-none"
+                                            onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                                        >
+                                            <span className="font-bold text-slate-900">{faq.question}</span>
+                                            <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform ${openFaq === index ? 'rotate-180 text-blue-600' : ''}`} />
+                                        </button>
+                                        {openFaq === index && (
+                                            <div className="px-6 pb-5 text-slate-600 leading-relaxed border-t border-slate-50 pt-4">
+                                                {faq.answer}
+                                            </div>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Final CTA */}
+                    <section className="py-24 bg-blue-600 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-blue-500 opacity-50 blur-3xl"></div>
+                        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-blue-700 opacity-50 blur-3xl"></div>
+                        
+                        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white font-medium text-sm mb-8 border border-white/20 backdrop-blur-sm">
+                                <Calendar className="w-4 h-4" /> The Monday Morning Sprint
+                            </div>
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6">
+                                Got 15 minutes?
+                            </h2>
+                            <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto font-medium leading-relaxed">
+                                That's all you need to schedule your high-authority posts for the whole month. Stop overthinking. Start growing.
+                            </p>
+                            <div className="flex flex-col sm:flex-row justify-center gap-4">
+                                
+                                <a 
+                                  href="https://play.google.com/store/apps/details?id=socials.productivity.ai" 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="w-full sm:w-auto flex items-center justify-center gap-3 !bg-slate-900 hover:!bg-slate-800 !text-white !border-slate-700 !outline-none px-8 py-3.5 rounded-xl transition-all shadow-lg hover:shadow-xl group"
+                                >
+                                  <svg className="w-7 h-7" viewBox="0 0 512 512" fill="currentColor">
+                                    <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
+                                  </svg>
+                                  <div className="text-left">
+                                    <div className="text-[10px] font-semibold leading-none mb-1 opacity-80">GET IT ON</div>
+                                    <div className="text-sm font-bold leading-none">Google Play</div>
+                                  </div>
+                                </a>
+                            </div>
+                            <div className="mt-8 flex flex-col items-center gap-2 text-sm text-blue-200">
+                                <span className="font-medium text-white">Join 10,000+ professionals capturing their expertise.</span>
+                                <div className="flex gap-4 mt-2">
+                                    <span className="flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-green-300" /> Free 7-Day Trial</span>
+                                    <span className="flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-green-300" /> Cancel Anytime</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Footer */}
+                    <footer className="bg-slate-50 py-12 border-t border-slate-200">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                            <div className="flex items-center gap-2">
+                                <div className="w-6 h-6 bg-blue-600 rounded flex items-center justify-center">
+                                    <span className="text-white font-bold text-xs">R</span>
+                                </div>
+                                <span className="font-bold text-xl tracking-tight text-slate-900">Raaye</span>
+                            </div>
+                            <div className="flex flex-wrap justify-center gap-6 text-sm font-medium text-slate-600">
+                                <a href="#" className="hover:text-blue-600 transition-colors">Privacy Policy</a>
+                                <a href="#" className="hover:text-blue-600 transition-colors">Terms of Service</a>
+                            </div>
+                            <p className="text-sm text-slate-500">
+                                © {new Date().getFullYear()} Raaye. All rights reserved.
+                            </p>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
