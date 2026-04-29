@@ -28,6 +28,14 @@ const server = http.createServer((req, res) => {
         const filename = parsedUrl.pathname.substring('/v3/'.length);
         filePath = path.join(__dirname, 'v3', filename);
     }
+    else if (parsedUrl.pathname === '/v4' || parsedUrl.pathname === '/v4/') {
+        filePath = path.join(__dirname, 'v4', 'index.html');
+    }
+    // Route: /v4/* -> v4/*
+    else if (parsedUrl.pathname.startsWith('/v4/')) {
+        const filename = parsedUrl.pathname.substring('/v4/'.length);
+        filePath = path.join(__dirname, 'v4', filename);
+    }
     // Route: / -> index.html (root)
     else if (parsedUrl.pathname === '/' || parsedUrl.pathname === '') {
         filePath = path.join(__dirname, 'index.html');

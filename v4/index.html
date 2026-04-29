@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raaye AI: Build LinkedIn Authority & Visibility</title>
+    <link rel="icon" type="image/png" href="./raaye-fav.png">
+    <link rel="apple-touch-icon" href="./raaye-fav.png">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WPHZXVZB');</script>
+    <script type='text/javascript'>
+        window.smartlook||(function(d) {
+            var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
+            var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
+            c.charset='utf-8';c.src='https://web-sdk.smartlook.com/recorder.js';h.appendChild(c);
+        })(document);
+        smartlook('init', 'b623b114cfba1f1ba652a51ff75cc199dd2a7cd6', { region: 'eu' });
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPHZXVZB"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+<div id="root"></div>
+
+    <script type="text/babel" data-type="module">
+        // We pull React and your specific Lucide icons from esm.sh so the browser can read them
+        import React, { useState } from 'https://esm.sh/react@18';
+        import { createRoot } from 'https://esm.sh/react-dom@18/client';
+        import {
+            Menu, X, Calendar, MessageSquare, ArrowRight, CheckCircle2, 
+            TrendingUp, Star, Layout, Edit3, BarChart3, ChevronDown, 
+            Rocket, Lightbulb, Target, Briefcase, Sparkles, Image as ImageIcon, 
+            ThumbsUp, Share2, MessageCircle, Clock, CalendarDays, 
+            Users, Layers, Heart, MousePointer2, ChevronRight, ChevronLeft, 
+            Wand2, ImagePlus, SlidersHorizontal, Map, CalendarClock, Kanban, 
+            Radar, Flame, Activity, Globe, Quote, TrendingUpIcon, Eye, BarChart2
+        } from 'https://esm.sh/lucide-react@0.344.0';
+
+        // --- YOUR EXACT COMPONENT CODE STARTS HERE ---
+        const App = () => {
+          const [isMenuOpen, setIsMenuOpen] = useState(false);
+          const [openFaq, setOpenFaq] = useState(null);
+
+          const faqs = [
+            {
+              question: "Is there a free trial?",
+              answer: "Yes. Raaye offers a 7-day free trial for you to explore how it generates LinkedIn posts, visuals, and engagement insights, without entering your credit card details. This lets you experience how Raaye turns your ideas into ready-to-share content before committing to a paid plan."
+            },
+            {
+              question: "Can I cancel my subscription anytime?",
+              answer: "Yes. Raaye subscriptions are flexible and can be cancelled at any time. If you cancel, you'll continue to have access to your plan until the end of your current billing cycle."
+            },
+            {
+              question: "Is it safe to connect my LinkedIn account?",
+              answer: "Yes. Raaye securely connects to your LinkedIn profile to understand your professional voice and personalize your content. Your data is never sold or shared with third parties, and you remain in full control of what gets published. Raaye only uses your profile information to generate relevant posts, visuals, and insights tailored to your expertise. Your account stays 100% safe and compliant with LinkedIn's terms."
+            },
+            {
+              question: "What makes Raaye different from other LinkedIn content generation tools?",
+              answer: "Most tools focus only on writing posts. Raaye helps you manage your entire LinkedIn presence, from generating content and visuals to scheduling posts, engaging with your feed, and tracking performance. It's designed as a LinkedIn growth engine, not just a content generator."
+            },
+            {
+              question: "Will the posts still feel like my authentic voice?",
+              answer: "Yes. Raaye studies your LinkedIn profile to capture your professional voice and perspective. The posts it generates are tailored to your expertise, and you can always choose from multiple variations or edit the tone to ensure the final post feels authentic to you."
+            }
+          ];
+
+          return (
+            <div className="font-sans text-slate-800 bg-[#FAFAFA] min-h-screen selection:bg-indigo-100 selection:text-indigo-900 relative overflow-hidden">
+              
+              {/* Global Background Grid Element */}
+              <div className="fixed inset-0 z-0 h-[100vh] w-full bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
+
+              {/* Ambient Glowing Orbs */}
+              <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[500px] rounded-full bg-blue-400/20 blur-[120px] -z-10 mix-blend-multiply"></div>
+              <div className="absolute top-[10%] right-[-5%] w-[30%] h-[400px] rounded-full bg-purple-400/20 blur-[120px] -z-10 mix-blend-multiply"></div>
+
+              {/* Navigation */}
+              {/* Navigation */}
+<nav className="fixed top-0 w-full bg-white/70 backdrop-blur-xl z-50 border-b border-slate-200/50 shadow-[0_2px_10px_rgb(0,0,0,0.02)]">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex justify-between items-center h-20">
+      <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer group">
+        <img 
+          src="raaye-dark.png" 
+          alt="Raaye Logo" 
+          className="h-9 w-auto group-hover:scale-105 transition-transform" 
+        />
+      </div>
+      
+      <div className="hidden md:flex items-center space-x-8">
+        <a href="#problems" className="text-slate-600 hover:text-[#0066FF] font-semibold transition-colors text-sm">How it Works</a>
+        <a href="#system" className="text-slate-600 hover:text-[#0066FF] font-semibold transition-colors text-sm">Platform</a>
+        <a href="#audience" className="text-slate-600 hover:text-[#0066FF] font-semibold transition-colors text-sm">Who it's For</a>
+        <a 
+  href="https://play.google.com/store/apps/details?id=socials.productivity.ai" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-[0_4px_14px_0_rgb(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)] hover:-translate-y-0.5 text-sm"
+>
+  Start your trial
+  <ArrowRight className="w-4 h-4" aria-hidden="true" />
+</a>
+      </div>
+
+      <div className="md:hidden flex items-center">
+        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-slate-600 hover:text-slate-900" aria-label="Toggle mobile menu">
+          {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+              {/* Fold 1: Hero Section */}
+              <section className="relative pt-24 pb-20 md:pt-28 md:pb-24 bg-gradient-to-br from-blue-50/50 via-slate-50 to-purple-50/30 border-b border-slate-200/80 overflow-hidden">
+                {/* Decorative Background Blobs */}
+                <div className="absolute top-[10%] right-[10%] w-[500px] h-[500px] rounded-full bg-[#0066FF]/10 blur-[120px] -z-10 mix-blend-multiply pointer-events-none"></div>
+                <div className="absolute bottom-[-10%] left-[10%] w-[400px] h-[400px] rounded-full bg-purple-400/15 blur-[100px] -z-10 mix-blend-multiply pointer-events-none"></div>
+
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                  <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-8">
+                    
+                    {/* Left Column: Content */}
+                    <div className="w-full md:w-[55%] lg:w-[55%] flex flex-col items-center md:items-start text-center md:text-left pt-8 md:pt-0">
+                      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 border border-blue-200 text-[#0066FF] font-bold text-xs uppercase tracking-wider mb-4 lg:mb-5 shadow-[0_4px_20px_rgba(0,102,255,0.1)] backdrop-blur-md transition-colors cursor-pointer group">
+                        <span className="relative flex h-2.5 w-2.5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0066FF] opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#0066FF]"></span>
+                        </span>
+                        AI-Powered LinkedIn Growth Platform
+                      </div>
+
+                      <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight text-slate-900 leading-[1.15] mb-6">
+                          AI copilot for&nbsp;
+                        <span className="text-[#0066FF]">creating high-performing</span> <span className="whitespace-nowrap">LinkedIn posts</span>
+                      </h1>
+                      
+                      <p className="text-base md:text-lg lg:text-xl text-slate-600 leading-relaxed max-w-xl mb-8 lg:mb-10 font-medium">
+                        Generate posts, plan your content calendar, and engage with your network - all in one AI-powered LinkedIn growth engine.
+                      </p>
+
+                        <div className="flex flex-col items-center md:items-start gap-4 w-full">
+
+
+
+
+                                <a
+                                    href="https://play.google.com/store/apps/details?id=socials.productivity.ai"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-full sm:w-auto flex items-center justify-center gap-3 !bg-slate-900 hover:!bg-slate-800 !text-white !border-slate-700 !outline-none px-8 py-3.5 rounded-xl transition-all shadow-lg hover:shadow-xl group"
+                                >
+
+
+                                    <svg className="w-9 h-9" viewBox="0 0 512 512" fill="currentColor">
+                                        <g id="Layer_x0020_1">
+                                            <path fill="#EA4335" fill-rule="nonzero"
+                                                  d="M199.9 237.8l-198.5 232.37c7.22,24.57 30.16,41.81 55.8,41.81 11.16,0 20.93,-2.79 29.3,-8.37l0 0 244.16 -139.46 -130.76 -126.35z"/>
+                                            <path fill="#FBBC04" fill-rule="nonzero"
+                                                  d="M433.91 205.1l0 0 -104.65 -60 -111.61 110.22 113.01 108.83 104.64 -58.6c18.14,-9.77 30.7,-29.3 30.7,-50.23 -1.4,-20.93 -13.95,-40.46 -32.09,-50.22z"/>
+                                            <path fill="#34A853" fill-rule="nonzero"
+                                                  d="M199.42 273.45l129.85 -128.35 -241.37 -136.73c-8.37,-5.58 -19.54,-8.37 -30.7,-8.37 -26.5,0 -50.22,18.14 -55.8,41.86 0,0 0,0 0,0l198.02 231.59z"/>
+                                            <path fill="#4285F4" fill-rule="nonzero"
+                                                  d="M1.39 41.86c-1.39,4.18 -1.39,9.77 -1.39,15.34l0 397.64c0,5.57 0,9.76 1.4,15.34l216.27 -214.86 -216.28 -213.46z"/>
+                                        </g>
+                                    </svg>
+                                    <div className="text-left">
+                                        <div className="text-[12px] font-normal leading-none mb-1 opacity-80">GET IT
+                                            ON
+                                        </div>
+                                        <div className="text-[20px] font-semibold leading-none">Google Play</div>
+                                    </div>
+                                </a>
+
+
+
+                            <div
+                                className="flex items-center justify-center md:justify-start gap-4 lg:gap-6 text-xs lg:text-sm text-slate-500 font-semibold w-full sm:w-auto ">
+                                <span className="flex items-center gap-1.5"><CheckCircle2
+                                    className="w-4 h-4 text-emerald-500"/> No credit card</span>
+                                <span className="flex items-center gap-1.5"><CheckCircle2
+                                    className="w-4 h-4 text-emerald-500"/> 7 Day Free Trial</span>
+                            </div>
+                        </div>
+                    </div>
+
+                      {/* Right Column: Visual Recreation */}
+
+
+                      {/* Main Visual Group */}
+                      <div className="relative z-10  flex  justify-center">
+
+
+                          <img src="./phone-lg2.png" alt="phone visual" className="relative z-10 h-auto md:h-[580px]"/>
+                      </div>
+                  </div>
+                </div>
+
+                  <div
+                      className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent z-0 pointer-events-none"></div>
+              </section>
+
+                {/* Fold 2: Problem Section (4-Column Grid with Self-Explanatory Visuals) */}
+                <section id="problems"
+                         className="py-16 md:py-20 relative z-10 bg-white border-b border-slate-200 shadow-[0_-10px_40px_rgba(0,0,0,0.02)]">
+                    <div
+                        className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none opacity-80"></div>
+                    <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                        <div className="text-center mb-10 max-w-3xl mx-auto">
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight"> <span
+                                className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500 leading-[120%]">Raaye AI Copilot</span> handles everything that stops you from writing LinkedIn posts</h2>
+                            <p className="text-lg md:text-xl text-slate-600 font-medium">LinkedIn shouldn't feel like a
+                                second job - You already have one.</p>
+                        </div>
+
+                        {/* Light Gradient Container Box */}
+                        <div className="bg-gradient-to-br from-slate-50 via-[#F4F7FC] to-indigo-50/60 rounded-[2.5rem] p-4 lg:p-6 xl:p-8 relative shadow-sm overflow-hidden border border-slate-200">
+                    {/* Light Ambient Glows inside box */}
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none mix-blend-multiply"></div>
+                    <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl pointer-events-none mix-blend-multiply"></div>
+
+                    {/* 4-Column Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 xl:gap-6 relative z-10 w-full">
+                      
+                      {/* Card 1: Ideation (White Card) */}
+                      <div className="bg-white rounded-3xl p-6 shadow-xl flex flex-col h-[460px] relative overflow-hidden group transition-all duration-300 border border-slate-100 hover:shadow-2xl hover:-translate-y-1">
+                        <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-5 shadow-[0_8px_24px_rgba(0,0,0,0.08)] border border-slate-50 group-hover:scale-110 transition-transform duration-300 shrink-0">
+                          <Lightbulb className="w-7 h-7 text-amber-500" />
+                        </div>
+                        <h3 className="text-xl lg:text-2xl font-extrabold text-slate-900 mb-2 tracking-tight">Running out of ideas?</h3>
+                        <p className="text-slate-600 leading-relaxed text-sm font-medium mb-6">Raaye AI generates LinkedIn post ideas using trending topics on your feed.</p>
+                        
+                        {/* Self-Explanatory Visual: Generated List */}
+                        <div className="mt-auto relative bg-slate-50 rounded-2xl p-4 border border-slate-100 h-44 flex flex-col shadow-inner overflow-hidden group-hover:-translate-y-1 transition-transform duration-500">
+                          <div className="flex items-center justify-between mb-3 relative z-10">
+                             <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Trending Ideas</span>
+                             <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                          </div>
+                          <div className="space-y-2.5 relative z-10">
+                             <div className="bg-white p-2.5 rounded-xl border border-slate-100 shadow-sm flex items-start gap-2">
+                                <TrendingUp className="w-3.5 h-3.5 text-[#0066FF] mt-0.5 shrink-0" />
+                                <p className="text-[10px] font-bold text-slate-700 leading-tight">Why async work is replacing endless meetings</p>
+                             </div>
+                             <div className="bg-white p-2.5 rounded-xl border border-slate-100 shadow-sm flex items-start gap-2 opacity-50">
+                                <TrendingUp className="w-3.5 h-3.5 text-[#0066FF] mt-0.5 shrink-0" />
+                                <p className="text-[10px] font-bold text-slate-700 leading-tight">The 3 metrics every SaaS founder should track</p>
+                             </div>
+                          </div>
+                          {/* Floating Surprise Me Pill */}
+                          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20">
+                            <button className="bg-slate-900 text-white px-5 py-2.5 rounded-full font-bold shadow-xl shadow-slate-900/20 flex items-center gap-2 group-hover:scale-105 transition-transform text-[10px] whitespace-nowrap border border-slate-800">
+                              <Sparkles className="w-3 h-3 text-amber-400" /> Surprise me
+                            </button>
+                          </div>
+                          {/* Bottom fade gradient for depth behind the button */}
+                          <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-slate-50 to-transparent z-10 pointer-events-none"></div>
+                        </div>
+                      </div>
+
+                      {/* Card 2: Create (White Card) */}
+                      <div className="bg-white rounded-3xl p-6 shadow-xl flex flex-col h-[460px] relative overflow-hidden group transition-all duration-300 border border-slate-100 hover:shadow-2xl hover:-translate-y-1">
+                        <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-5 shadow-[0_8px_24px_rgba(0,0,0,0.08)] border border-slate-50 group-hover:scale-110 transition-transform duration-300 shrink-0">
+                          <Edit3 className="w-7 h-7 text-purple-500" />
+                        </div>
+                        <h3 className="text-xl lg:text-2xl font-extrabold text-slate-900 mb-2 tracking-tight">Spending too long writing?</h3>
+                        <p className="text-slate-600 leading-relaxed text-sm font-medium mb-6">Turn rough thoughts into polished posts in seconds with Raaye AI.</p>
+                        
+                        {/* Self-Explanatory Visual: Rough Draft to Polished */}
+                        <div className="mt-auto bg-slate-50 rounded-2xl p-4 border border-slate-100 h-44 flex flex-col shadow-inner overflow-hidden group-hover:-translate-y-1 transition-transform duration-500">
+                          {/* Before */}
+                          <div className="bg-white p-2.5 rounded-xl border border-slate-100 shadow-sm mb-2 opacity-70">
+                            <p className="text-[9px] font-extrabold text-slate-400 uppercase tracking-wider mb-1">Rough Draft</p>
+                            <p className="text-[10px] text-slate-600 italic">"Leadership is about helping your team grow, not micromanaging them."</p>
+                          </div>
+                          {/* Magic Arrow */}
+                          <div className="flex justify-center -my-2.5 relative z-10">
+                            <div className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white rounded-full p-1.5 border-2 border-white shadow-md">
+                               <Wand2 className="w-3 h-3" />
+                            </div>
+                          </div>
+                          {/* After */}
+                          <div className="bg-white p-3 rounded-xl border-2 border-purple-200 shadow-md mt-1 relative flex-1">
+                            <p className="text-[9px] font-extrabold text-purple-600 uppercase tracking-wider mb-1.5">Polished Post</p>
+                            <p className="text-[10px] font-bold text-slate-800 leading-snug">The best leaders don't build followers. They build more leaders.<br/><br/><span className="text-slate-500 font-medium">Here is my 3-step framework...</span></p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Card 3: Schedule (White Card) */}
+                      <div className="bg-white rounded-3xl p-6 shadow-xl flex flex-col h-[460px] relative overflow-hidden group transition-all duration-300 border border-slate-100 hover:shadow-2xl hover:-translate-y-1">
+                        <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-5 shadow-[0_8px_24px_rgba(0,0,0,0.08)] border border-slate-50 group-hover:scale-110 transition-transform duration-300 shrink-0">
+                          <CalendarDays className="w-7 h-7 text-[#0066FF]" />
+                        </div>
+                        <h3 className="text-xl lg:text-2xl font-extrabold text-slate-900 mb-2 tracking-tight">Struggling to stay consistent?</h3>
+                        <p className="text-slate-600 leading-relaxed text-sm font-medium mb-6">Plan and schedule weeks of LinkedIn content in minutes.</p>
+                        
+                        {/* Self-Explanatory Visual: Weekly Calendar Grid */}
+                        <div className="mt-auto bg-slate-50 rounded-2xl p-4 border border-slate-100 h-44 flex flex-col shadow-inner overflow-hidden group-hover:-translate-y-1 transition-transform duration-500">
+                          <div className="flex justify-between items-center mb-4">
+                             <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">This Week</span>
+                             <CalendarClock className="w-3.5 h-3.5 text-[#0066FF]" />
+                          </div>
+                          <div className="grid grid-cols-5 gap-2 flex-1">
+                             {/* MON */}
+                             <div className="flex flex-col gap-2 items-center">
+                                <span className="text-[8px] font-bold text-slate-400">MON</span>
+                                <div className="w-full bg-[#0066FF]/10 border border-[#0066FF]/30 rounded-lg p-1.5 flex justify-center shadow-sm"><CheckCircle2 className="w-3.5 h-3.5 text-[#0066FF]"/></div>
+                             </div>
+                             {/* TUE */}
+                             <div className="flex flex-col gap-2 items-center">
+                                <span className="text-[8px] font-bold text-slate-400">TUE</span>
+                                <div className="w-full bg-white border border-slate-200 rounded-lg p-1.5 h-7 shadow-sm"></div>
+                             </div>
+                             {/* WED */}
+                             <div className="flex flex-col gap-2 items-center">
+                                <span className="text-[8px] font-bold text-slate-400">WED</span>
+                                <div className="w-full bg-[#0066FF]/10 border border-[#0066FF]/30 rounded-lg p-1.5 flex justify-center shadow-sm mb-1"><CheckCircle2 className="w-3.5 h-3.5 text-[#0066FF]"/></div>
+                                <div className="w-full bg-purple-50 border border-purple-200 rounded-lg p-1.5 flex justify-center shadow-sm"><ImageIcon className="w-3.5 h-3.5 text-purple-500"/></div>
+                             </div>
+                             {/* THU */}
+                             <div className="flex flex-col gap-2 items-center">
+                                <span className="text-[8px] font-bold text-slate-400">THU</span>
+                                <div className="w-full bg-white border border-slate-200 rounded-lg p-1.5 h-7 shadow-sm"></div>
+                             </div>
+                             {/* FRI */}
+                             <div className="flex flex-col gap-2 items-center">
+                                <span className="text-[8px] font-bold text-slate-400">FRI</span>
+                                <div className="w-full bg-emerald-50 border border-emerald-200 rounded-lg p-1.5 flex justify-center shadow-sm"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-600"/></div>
+                             </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Card 4: Engage (White Card) */}
+                      <div className="bg-white rounded-3xl p-6 shadow-xl flex flex-col h-[460px] relative overflow-hidden group transition-all duration-300 border border-slate-100 hover:shadow-2xl hover:-translate-y-1">
+                        <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-5 shadow-[0_8px_24px_rgba(0,0,0,0.08)] border border-slate-50 group-hover:scale-110 transition-transform duration-300 shrink-0">
+                          <MessageCircle className="w-7 h-7 text-emerald-500" />
+                        </div>
+                        <h3 className="text-xl lg:text-2xl font-extrabold text-slate-900 mb-2 tracking-tight">Too busy to keep up?</h3>
+                        <p className="text-slate-600 leading-relaxed text-sm font-medium mb-6">Grow your presence via smart automation in one click.</p>
+                        
+                        {/* Self-Explanatory Visual: 1-Click AI Reply */}
+                        <div className="mt-auto bg-slate-50 rounded-2xl p-4 border border-slate-100 h-44 flex flex-col shadow-inner overflow-hidden group-hover:-translate-y-1 transition-transform duration-500">
+                          <div className="bg-white p-3 rounded-xl shadow-sm border border-slate-100 mb-3">
+                            <div className="flex items-center gap-2 mb-2">
+                               <div className="w-6 h-6 rounded-full bg-slate-200 shrink-0 overflow-hidden"><img src="https://i.pravatar.cc/150?img=47" alt="Sarah J." className="w-full h-full object-cover"/></div>
+                               <div>
+                                 <p className="text-[10px] font-extrabold text-slate-900 leading-none">Sarah J.</p>
+                                 <p className="text-[8px] text-slate-500 font-medium">VP of Engineering</p>
+                               </div>
+                            </div>
+                            <p className="text-[10px] text-slate-700 font-medium leading-snug">Love this approach to async work! How do you handle daily standups?</p>
+                          </div>
+                          
+                          <div className="flex gap-2.5 mt-auto">
+                             <button className="flex-1 bg-emerald-50 border border-emerald-200 text-emerald-700 text-[9px] font-bold py-2 rounded-xl flex items-center justify-center gap-1.5 hover:bg-emerald-100 transition-colors shadow-sm">
+                                <Sparkles className="w-3 h-3" /> Insightful
+                             </button>
+                             <button className="flex-1 bg-blue-50 border border-blue-200 text-blue-700 text-[9px] font-bold py-2 rounded-xl flex items-center justify-center gap-1.5 hover:bg-blue-100 transition-colors shadow-sm">
+                                <Sparkles className="w-3 h-3" /> Appreciative
+                             </button>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Fold 3: Product transformation Video Section (Light Slate Block & Glow) */}
+              <section className="py-16 md:py-20 relative overflow-hidden bg-[#F8FAFC] border-b border-slate-200/60 shadow-[inset_0_4px_24px_rgba(0,0,0,0.02)]">
+                <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-40 pointer-events-none"></div>
+                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                  <div className="mb-10">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">Raaye generates publish-ready <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066FF] to-purple-600 leading-[120%]"> LinkedIn posts instantly with AI</span></h2>
+                    <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto font-medium">
+                      Share a quick thought, link, or prompt and Raaye instantly turns it into polished LinkedIn content that sounds like you.
+                    </p>
+                  </div>
+                  <img src="./front-lg2.png" alt="" className="h-auto w-full max-w-3xl mx-auto object-contain"/> 
+                  
+                </div>
+              </section>
+
+              {/* Mid-Funnel CTA 1: After Video (Dark High-Contrast Block) */}
+              <section className="py-16 md:py-24 bg-slate-900 relative z-20 border-y border-slate-800">
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none"></div>
+                <div className="absolute left-[20%] top-0 w-[400px] h-[100px] bg-[#0066FF] blur-[100px] opacity-30 pointer-events-none"></div>
+                
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                  <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-slate-800/40 backdrop-blur-md border border-slate-700/50 rounded-[2.5rem] p-8 md:p-12 shadow-2xl">
+                    <div className="text-center md:text-left">
+                      <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Ready to let <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Raaye AI Copilot</span> handle your <br/> LinkedIn posting for you?</h2>
+                      <p className="text-slate-400 text-base font-medium">Turn your next idea into a viral post in exactly 15 seconds.</p>
+                    </div>
+                    <a 
+  href="https://play.google.com/store/apps/details?id=socials.productivity.ai"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="whitespace-nowrap flex items-center justify-center gap-2 bg-gradient-to-r from-[#0066FF] to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-10 py-4 rounded-full text-base font-bold transition-all shadow-[0_0_20px_rgba(0,102,255,0.4)] hover:shadow-[0_0_30px_rgba(0,102,255,0.6)] hover:-translate-y-0.5"
+>
+  Download the App <ArrowRight className="w-5 h-5" aria-hidden="true" />
+</a>
+                  </div>
+                </div>
+              </section>
+
+              {/* Fold 4: The Raaye System (Crisp White Block + Large Grid Background) */}
+              <section id="system" className="py-16 md:py-20 bg-white relative z-10 border-b border-slate-200/60">
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none"></div>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                  <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight bg-white inline-block px-4">Drive consistent LinkedIn growth <span className="text-[#0066FF]">with Raaye AI Copilot</span></h2>
+                  </div>
+
+                  <div className="space-y-40">
+                    
+                    {/* System 1: Create */}
+                    <div className="mb-20">
+                      {/* Top: Text Left, Visual Right */}
+                      <div className="flex flex-col md:flex-row gap-16 items-center mb-16">
+                        <div className="md:w-5/12">
+                          <div className="inline-flex bg-blue-50 text-[#0066FF] text-[10px] font-extrabold px-3 py-1 rounded-md uppercase tracking-widest border border-blue-200 shadow-sm mb-4">Create</div>
+                          <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 leading-tight tracking-tight">Raaye’s AI post generator writes <span className="text-[#0066FF]">just like you</span></h3>
+                          <p className="text-lg text-slate-600 leading-relaxed font-medium">Raaye's AI powered content creator helps you transform rough thoughts into polished posts with zero friction.</p>
+                        </div>
+                        
+                        <div className="md:w-7/12 w-full flex items-center justify-center">
+                            <img src="./phone62.png" alt="AI Content Creator" className="md:w-[620px] md:h-[340px] w-full h-auto "/>
+                        </div>
+                      </div>
+                      
+                      {/* Bottom: 3 Vibrant Cards */}
+                      <div className="grid md:grid-cols-3 gap-6">
+                        <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300">
+                          <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-[#0066FF] text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-500/30"><Layers className="w-6 h-6"/></div>
+                          <h4 className="font-bold text-xl text-slate-900 mb-3 tracking-tight">AI Content Variations</h4>
+                          <p className="text-slate-600 leading-relaxed text-sm font-medium">Generate multiple unique post angles from the same idea so you can pick the style that best fits your voice.</p>
+                        </div>
+                        <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300">
+                          <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-[#0066FF] text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-500/30"><ImagePlus className="w-6 h-6"/></div>
+                          <h4 className="font-bold text-xl text-slate-900 mb-3 tracking-tight">AI Visuals & Infographics</h4>
+                          <p className="text-slate-600 leading-relaxed text-sm font-medium">Instantly generate supporting visuals or infographics that make your posts more scroll-stopping.</p>
+                        </div>
+                        <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300">
+                          <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-[#0066FF] text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-500/30"><SlidersHorizontal className="w-6 h-6"/></div>
+                          <h4 className="font-bold text-xl text-slate-900 mb-3 tracking-tight">Tone & Style Editing</h4>
+                          <p className="text-slate-600 leading-relaxed text-sm font-medium">Adjust the voice of your post - more authoritative, conversational, or insightful - with one click.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* System 2: Plan */}
+                    <div className="mb-20">
+                      {/* Top: Text Left, Visual Right */}
+                      <div className="flex flex-col md:flex-row gap-16 items-center mb-12">
+                        <div className="md:w-5/12">
+                          <div className="inline-flex bg-purple-50 text-purple-700 text-[10px] font-extrabold px-3 py-1 rounded-md uppercase tracking-widest border border-purple-200 shadow-sm mb-4">Plan</div>
+                          <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 leading-tight tracking-tight">Raaye AI builds your content calenda <span className="text-purple-600">in minutes</span></h3>
+                          <p className="text-lg text-slate-600 leading-relaxed font-medium">Stay consistent without constantly thinking about what to post. Visualize your entire week at a glance.</p>
+                        </div>
+                        
+                        <div className="md:w-7/12 w-full flex items-center justify-center">
+                            <img src="./phone52.png" alt="AI Content Creator" className=" md:w-[620px] md:h-[340px] w-full h-auto  "/>
+                        </div>
+                      </div>
+                      
+                      {/* Bottom: 3 Cards */}
+                      <div className="grid md:grid-cols-3 gap-6">
+                        <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300">
+                          <div className="w-14 h-14 bg-gradient-to-br from-purple-400 to-indigo-500 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-purple-500/30"><Map className="w-6 h-6"/></div>
+                          <h4 className="font-bold text-xl text-slate-900 mb-3 tracking-tight">Weekly Content Mapping</h4>
+                          <p className="text-slate-600 leading-relaxed text-sm font-medium">Raaye suggests a balanced mix of post types so your content stays fresh and engaging.</p>
+                        </div>
+                        <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300">
+                          <div className="w-14 h-14 bg-gradient-to-br from-purple-400 to-indigo-500 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-purple-500/30"><CalendarClock className="w-6 h-6"/></div>
+                          <h4 className="font-bold text-xl text-slate-900 mb-3 tracking-tight">Content Calendar</h4>
+                          <p className="text-slate-600 leading-relaxed text-sm font-medium">Organize and move posts easily within a visual calendar designed for LinkedIn workflows.</p>
+                        </div>
+                        <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300">
+                          <div className="w-14 h-14 bg-gradient-to-br from-purple-400 to-indigo-500 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-purple-500/30"><Kanban className="w-6 h-6"/></div>
+                          <h4 className="font-bold text-xl text-slate-900 mb-3 tracking-tight">Pipeline Management</h4>
+                          <p className="text-slate-600 leading-relaxed text-sm font-medium">Keep ideas, drafts, and scheduled posts organized so nothing gets lost or forgotten.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* System 3: Grow */}
+                    <div>
+                      {/* Top: Text Left, Visual Right */}
+                      <div className="flex flex-col md:flex-row gap-16 items-center mb-12">
+                        <div className="md:w-5/12">
+                          <div className="inline-flex bg-emerald-50 text-emerald-700 text-[10px] font-extrabold px-3 py-1 rounded-md uppercase tracking-widest border border-emerald-200 shadow-sm mb-4">Grow</div>
+                          <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 leading-tight tracking-tight">AI-driven engagement without <span className="text-emerald-600">endless scrolling</span></h3>
+                          <p className="text-lg text-slate-600 leading-relaxed font-medium">Raaye curates your LinkedIn feed and helps you engage intelligently, surfacing only what matters.</p>
+                        </div>
+                        
+                        <div className="md:w-7/12 w-full flex items-center justify-center">
+                            <img src="./phone42.png" alt="AI Content Creator" className="md:w-[710px] md:h-[380px] w-full h-auto md:ml-8"/>
+                        </div>
+                      </div>
+                      
+                      {/* Bottom: 3 Cards */}
+                      <div className="grid md:grid-cols-3 gap-6">
+                        <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300">
+                          <div className="w-14 h-14 bg-gradient-to-br from-emerald-400 to-teal-500 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/30"><Radar className="w-6 h-6"/></div>
+                          <h4 className="font-bold text-xl text-slate-900 mb-3 tracking-tight">AI-Curated Feed</h4>
+                          <p className="text-slate-600 leading-relaxed text-sm font-medium">Raaye filters your LinkedIn feed to surface the most relevant posts from your niche.</p>
+                        </div>
+                        <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300">
+                          <div className="w-14 h-14 bg-gradient-to-br from-emerald-400 to-teal-500 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/30"><Flame className="w-6 h-6"/></div>
+                          <h4 className="font-bold text-xl text-slate-900 mb-3 tracking-tight">Trend Discovery</h4>
+                          <p className="text-slate-600 leading-relaxed text-sm font-medium">Stay updated with trending discussions and popular posts in your industry.</p>
+                        </div>
+                        <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300">
+                          <div className="w-14 h-14 bg-gradient-to-br from-emerald-400 to-teal-500 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/30"><Activity className="w-6 h-6"/></div>
+                          <h4 className="font-bold text-xl text-slate-900 mb-3 tracking-tight">Performance Insights</h4>
+                          <p className="text-slate-600 leading-relaxed text-sm font-medium">See which posts drive the most engagement so you can double down on what works.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+
+              {/* Fold 5: Trend Discovery (Soft Indigo Tinted Block) */}
+              <section className="py-16 md:py-20 bg-indigo-50/40 border-b border-indigo-100/50 relative z-10 overflow-hidden shadow-[inset_0_10px_30px_rgba(0,0,0,0.02)]">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                  
+                  {/* Overarching Section Header for Insights & Analytics */}
+                  <div className="text-center mb-16 max-w-3xl mx-auto">
+                    <div className="inline-flex bg-indigo-100 text-indigo-700 text-[10px] font-extrabold px-3 py-1 rounded-md uppercase tracking-widest border border-indigo-200 shadow-sm mb-4">Insights & Analytics</div>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight">
+                        Data-driven AI optimization to <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066FF] to-purple-600">maximize your reach.</span>
+                    </h2>
+                    <p className="text-lg md:text-xl text-slate-600 font-medium">
+                      Don't post blindly. Discover what your audience actually wants to read and track exactly what's working.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-24">
+                    
+                    {/* Left side: Copy */}
+                    <div className="md:w-1/2">
+                      <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
+                        Curate posts based on <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">what's trending</span> on your feed
+                      </h3>
+                      <p className="text-lg text-slate-600 leading-relaxed mb-8 font-medium">
+                        Raaye tracks trending conversations in your niche so you always know what your audience cares about. Stop guessing and join the conversations that matter.
+                      </p>
+                      
+                      <ul className="space-y-6">
+                        <li className="flex items-start gap-4">
+                          <div className="mt-1 bg-slate-900 p-1.5 rounded-full"><CheckCircle2 className="w-4 h-4 text-white"/></div>
+                          <span className="text-slate-700 font-medium">Discover trending topics before they go mainstream.</span>
+                        </li>
+                        <li className="flex items-start gap-4">
+                          <div className="mt-1 bg-slate-900 p-1.5 rounded-full"><CheckCircle2 className="w-4 h-4 text-white"/></div>
+                          <span className="text-slate-700 font-medium">Filter conversations by your specific industry or niche.</span>
+                        </li>
+                        <li className="flex items-start gap-4">
+                          <div className="mt-1 bg-slate-900 p-1.5 rounded-full"><CheckCircle2 className="w-4 h-4 text-white"/></div>
+                          <span className="text-slate-700 font-medium">Instantly generate relevant comments to join the discussion.</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Right side: Realistic LinkedIn Cards & Viral Metrics */}
+                    <div className="md:w-1/2 w-full mt-12 md:mt-0 relative">
+                      {/* Background glow for colorful vibe */}
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[80%] bg-gradient-to-tr from-amber-200/40 via-purple-200/40 to-blue-200/40 blur-[80px] rounded-full -z-10 mix-blend-multiply"></div>
+                      
+                      <div className="relative space-y-6  ">
+                        
+                      <img src="./3cards3.png" alt="" className="w-full h-auto md:scale-[1.3]"/>
+
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+
+              {/* Fold 6: Analytics & Insights (Pure White Block with Dotted Texture) */}
+              <section className="py-16 md:py-20 bg-white border-b border-slate-200/60 relative z-10 overflow-hidden">
+                <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-80 pointer-events-none"></div>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                  <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-24">
+                    
+                    {/* Left side: Copy */}
+                    <div className="md:w-1/2">
+                      <h3 className="text-3xl md:text-3xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
+                        Understand what content <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066FF] to-indigo-600">drives engagement</span>
+                      </h3>
+                      <p className="text-lg text-slate-600 leading-relaxed mb-8 font-medium">
+                        Track your LinkedIn performance and see what content resonates with your audience. Turn data into actionable insights to scale your growth.
+                      </p>
+                      
+                      <ul className="space-y-6">
+                        <li className="flex items-start gap-2">
+                          <div className="mt-1 bg-slate-900 p-1.5 rounded-full"><CheckCircle2 className="w-4 h-4 text-white"/></div>
+                          <span className="text-slate-700 font-medium">Track impressions, likes, and engagement rates over time.</span>
+                        </li>
+                        <li className="flex items-start gap-4">
+                          <div className="mt-1 bg-slate-900 p-1.5 rounded-full"><CheckCircle2 className="w-4 h-4 text-white"/></div>
+                          <span className="text-slate-700 font-medium">Identify your top-performing formats and topics automatically.</span>
+                        </li>
+                        <li className="flex items-start gap-4">
+                          <div className="mt-1 bg-slate-900 p-1.5 rounded-full"><CheckCircle2 className="w-4 h-4 text-white"/></div>
+                          <span className="text-slate-700 font-medium">Get AI-driven recommendations on when and what to post next.</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Right side: Modern Vibrant Dashboard Mockup */}
+                    <div className="md:w-1/2 w-full relative mt-16 md:mt-0">
+                      {/* Background Blob for depth */}
+                      <img src="./impressions2.png" className="w-full md:scale-[1.32] h-auto "/>
+
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Mid-Funnel CTA 2: After Analytics */}
+              <section className="py-12 bg-white relative z-10">
+                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                  <div className="relative rounded-[2rem] overflow-hidden shadow-[0_20px_40px_rgba(0,102,255,0.15)] border border-blue-100 p-8 md:p-12 text-center flex flex-col items-center">
+                    {/* Vibrant Background */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#0066FF] via-indigo-500 to-purple-600 opacity-10 pointer-events-none"></div>
+                    <div className="absolute -top-24 -right-24 w-64 h-64 bg-purple-400/30 rounded-full blur-[60px] pointer-events-none"></div>
+                    <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-[#0066FF]/30 rounded-full blur-[60px] pointer-events-none"></div>
+                    
+                    <div className="relative z-10 flex flex-col items-center">
+                      <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4">Join <span className="text-[#0066FF]">10,000+ professionals</span> owning their niche.</h2>
+                      <p className="text-slate-600 font-medium mb-8 max-w-lg">Stop leaving opportunities on the table. Build your undeniable LinkedIn presence today.</p>
+                      <a 
+  href="https://play.google.com/store/apps/details?id=socials.productivity.ai"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-10 py-4 rounded-full text-sm font-bold transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1"
+>
+  7 Day Free Trial <ArrowRight className="w-4 h-4" aria-hidden="true" />
+</a>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Fold 7: Who Raaye Is For (Soft Slate Block with Diagonal Stripes) */}
+              <section id="audience" className="py-16 md:py-20 bg-slate-50 border-y border-slate-200/60 relative z-10 overflow-hidden">
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagonal-stripes.png')] opacity-[0.03] pointer-events-none"></div>
+                
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                  <div className="text-center mb-16 max-w-3xl mx-auto">
+                    <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight text-slate-900">Built for professionals who want to <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066FF] to-indigo-600">10x their growth.</span></h2>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                    {/* Persona 1: Founders (Blue Theme) */}
+                    <div className="bg-white/80 backdrop-blur-md p-8 rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,102,255,0.1)] hover:border-blue-200 transition-all duration-300 group flex flex-col sm:flex-row gap-6 items-start relative overflow-hidden">
+                      <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#0066FF]/10 rounded-full blur-3xl group-hover:bg-[#0066FF]/20 transition-colors pointer-events-none"></div>
+                      <div className="w-14 h-14 shrink-0 bg-gradient-to-br from-[#0066FF] to-indigo-600 shadow-[0_5px_15px_rgba(0,102,255,0.3)] rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                        <Rocket className="w-6 h-6" />
+                      </div>
+                      <div className="relative z-10">
+                        <h3 className="text-xl font-bold mb-2 text-slate-900">Founders & CXOs</h3>
+                        <p className="text-slate-600 leading-relaxed font-medium">
+                          Turn your insights into authority-building content that attracts customers and partnerships.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Persona 2: Consultants (Purple Theme) */}
+                    <div className="bg-white/80 backdrop-blur-md p-8 rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(147,51,234,0.08)] hover:border-purple-200 transition-all duration-300 group flex flex-col sm:flex-row gap-6 items-start relative overflow-hidden">
+                      <div className="absolute -top-20 -right-20 w-40 h-40 bg-purple-400/10 rounded-full blur-3xl group-hover:bg-purple-400/20 transition-colors pointer-events-none"></div>
+                      <div className="w-14 h-14 shrink-0 bg-gradient-to-br from-purple-500 to-fuchsia-600 shadow-[0_5px_15px_rgba(147,51,234,0.3)] rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                        <Lightbulb className="w-6 h-6" />
+                      </div>
+                      <div className="relative z-10">
+                        <h3 className="text-xl font-bold mb-2 text-slate-900">Consultants & Advisors</h3>
+                        <p className="text-slate-600 leading-relaxed font-medium">
+                          Share your expertise consistently and generate high-quality inbound leads.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Persona 3: Sales (Emerald Theme) */}
+                    <div className="bg-white/80 backdrop-blur-md p-8 rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(16,185,129,0.08)] hover:border-emerald-200 transition-all duration-300 group flex flex-col sm:flex-row gap-6 items-start relative overflow-hidden">
+                      <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-emerald-400/10 rounded-full blur-3xl group-hover:bg-emerald-400/20 transition-colors pointer-events-none"></div>
+                      <div className="w-14 h-14 shrink-0 bg-gradient-to-br from-emerald-400 to-teal-500 shadow-[0_5px_15px_rgba(16,185,129,0.3)] rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                        <Target className="w-6 h-6" />
+                      </div>
+                      <div className="relative z-10">
+                        <h3 className="text-xl font-bold mb-2 text-slate-900">Sales & Marketing</h3>
+                        <p className="text-slate-600 leading-relaxed font-medium">
+                          Stay visible with prospects and build trust at scale with your target audience.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Persona 4: Career (Amber Theme) */}
+                    <div className="bg-white/80 backdrop-blur-md p-8 rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(245,158,11,0.08)] hover:border-amber-200 transition-all duration-300 group flex flex-col sm:flex-row gap-6 items-start relative overflow-hidden">
+                      <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-amber-400/10 rounded-full blur-3xl group-hover:bg-amber-400/20 transition-colors pointer-events-none"></div>
+                      <div className="w-14 h-14 shrink-0 bg-gradient-to-br from-amber-400 to-orange-500 shadow-[0_5px_15px_rgba(245,158,11,0.3)] rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                        <Briefcase className="w-6 h-6" />
+                      </div>
+                      <div className="relative z-10">
+                        <h3 className="text-xl font-bold mb-2 text-slate-900">Career Builders</h3>
+                        <p className="text-slate-600 leading-relaxed font-medium">
+                          Showcase your industry knowledge and attract premium opportunities from top recruiters.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Fold 8: Social Proof / Testimonials (Soft Blue Background) */}
+              <section className="py-16 md:py-20 bg-blue-50/30 border-b border-blue-100/50 relative z-10">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                  <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Loved by <span className="text-[#0066FF]">professionals</span>, not just influencers.</h2>
+                    <p className="text-lg text-slate-600 mt-4 font-medium">See how real experts are taking back their time and owning their narrative.</p>
+                  </div>
+                 
+                  <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    {/* Testimonial 1 */}
+                    <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300 relative overflow-hidden group">
+                      <Quote className="absolute -right-4 -top-4 w-32 h-32 text-slate-50/50 rotate-12 group-hover:rotate-6 transition-transform duration-500 pointer-events-none" />
+                      <div className="relative z-10">
+                        <div className="flex text-amber-400 mb-6 gap-1">
+                          <Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" />
+                        </div>
+                        <p className="text-slate-700 font-medium text-lg leading-relaxed mb-8 italic">"I wish I had this system a long time ago. I finally have a presence that works while I'm stuck in back-to-back product meetings."</p>
+                        <div className="flex items-center gap-4">
+                          <img src="https://i.pravatar.cc/150?img=44" alt="Sarah Mitchell, Senior Product Manager" className="w-12 h-12 rounded-full shadow-sm border-2 border-slate-100"/>
+                          <div>
+                            <p className="font-bold text-slate-900">Sarah Mitchell</p>
+                            <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Senior Product Manager</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                   
+                    {/* Testimonial 2 */}
+                    <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300 relative overflow-hidden group">
+                      <Quote className="absolute -right-4 -top-4 w-32 h-32 text-slate-50/50 rotate-12 group-hover:rotate-6 transition-transform duration-500 pointer-events-none" />
+                      <div className="relative z-10">
+                        <div className="flex text-amber-400 mb-6 gap-1">
+                          <Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" />
+                        </div>
+                        <p className="text-slate-700 font-medium text-lg leading-relaxed mb-8 italic">"Landed 3 recruiter DMs in one week without applying. Raaye turned my messy technical notes into engaging insights instantly."</p>
+                        <div className="flex items-center gap-4">
+                          <img src="https://i.pravatar.cc/150?img=11" alt="David Alarie, Lead Data Analyst" className="w-12 h-12 rounded-full shadow-sm border-2 border-slate-100"/>
+                          <div>
+                            <p className="font-bold text-slate-900">David Alarie</p>
+                            <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Lead Data Analyst</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Testimonial 3 */}
+                    <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300 relative overflow-hidden group">
+                      <Quote className="absolute -right-4 -top-4 w-32 h-32 text-slate-50/50 rotate-12 group-hover:rotate-6 transition-transform duration-500 pointer-events-none" />
+                      <div className="relative z-10">
+                        <div className="flex text-amber-400 mb-6 gap-1">
+                          <Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" />
+                        </div>
+                        <p className="text-slate-700 font-medium text-lg leading-relaxed mb-8 italic">"It's not a second job; it's a 15-minute habit. I set up my entire month of content on a Sunday morning."</p>
+                        <div className="flex items-center gap-4">
+                          <img src="https://i.pravatar.cc/150?img=33" alt="Marcus Chen, Agency Founder" className="w-12 h-12 rounded-full shadow-sm border-2 border-slate-100"/>
+                          <div>
+                            <p className="font-bold text-slate-900">Marcus Chen</p>
+                            <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Agency Founder</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Fold 9: FAQ Section (Crisp White Block) */}
+              <section className="py-16 md:py-20 bg-white relative z-10 border-t border-slate-200/60 shadow-[inset_0_10px_30px_rgba(0,0,0,0.01)]">
+                <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                  <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Frequently Asked Questions</h2>
+                    <p className="text-lg text-slate-600 font-medium">Everything you need to know about the Raaye platform.</p>
+                  </div>
+                 
+                  <div className="space-y-4">
+                    {faqs.map((faq, index) => (
+                      <div key={index} className="bg-white border border-slate-200/60 rounded-2xl overflow-hidden shadow-sm transition-all hover:border-indigo-300 hover:shadow-md hover:shadow-indigo-500/5 group">
+                        <button
+                          className="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none bg-gradient-to-r hover:from-slate-50 hover:to-white transition-colors"
+                          onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                          aria-expanded={openFaq === index}
+                        >
+                          <span className="font-bold text-slate-900 text-lg group-hover:text-[#0066FF] transition-colors">{faq.question}</span>
+                          <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${openFaq === index ? 'rotate-180 text-[#0066FF]' : 'group-hover:text-indigo-400'}`} aria-hidden="true" />
+                        </button>
+                        {openFaq === index && (
+                          <div className="px-8 pb-6 text-slate-600 font-medium leading-relaxed border-t border-slate-100 pt-4 text-base">
+                            {faq.answer}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+
+              {/* Final CTA - The Monday Morning Sprint */}
+              <section className="py-20 md:py-28 bg-slate-950 relative overflow-hidden z-10">
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-indigo-600/40 blur-[150px] rounded-full -z-10 mix-blend-screen pointer-events-none"></div>
+                <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-[#0066FF]/30 blur-[100px] rounded-full -z-10 mix-blend-screen pointer-events-none"></div>
+               
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                  <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 text-white font-semibold text-sm mb-8 border border-white/10 backdrop-blur-md shadow-lg">
+                    <Calendar className="w-4 h-4 text-indigo-300" /> The Monday Morning Sprint
+                  </div>
+                  <h2 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 tracking-tight leading-[1.1]">
+                    Got <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">15 minutes?</span>
+                  </h2>
+                  <p className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
+                    That's all you need to schedule your high-authority posts for the whole month. Stop overthinking. Start growing.
+                  </p>
+                  <div className="flex flex-col items-center gap-6">
+                    <a 
+  href="https://play.google.com/store/apps/details?id=socials.productivity.ai"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center justify-center gap-3 bg-gradient-to-r from-[#0066FF] via-indigo-500 to-purple-600 hover:from-blue-500 hover:via-indigo-400 hover:to-purple-500 text-white px-12 py-5 rounded-full text-xl font-bold transition-all shadow-[0_0_50px_rgba(99,102,241,0.5)] hover:shadow-[0_0_80px_rgba(99,102,241,0.7)] hover:-translate-y-1 hover:scale-105 duration-300 border border-white/20"
+>
+  Download the App Now <ArrowRight className="w-6 h-6" aria-hidden="true" />
+</a>
+                    <div className="flex gap-8 mt-2">
+                      <span className="flex items-center gap-2 text-sm font-semibold text-slate-300"><CheckCircle2 className="w-4 h-4 text-emerald-400" /> Free 7-Day Trial</span>
+                      <span className="flex items-center gap-2 text-sm font-semibold text-slate-300"><CheckCircle2 className="w-4 h-4 text-emerald-400" /> Cancel Anytime</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Footer */}
+              <footer className="bg-white py-12 relative z-10">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer group">
+                        <img
+                            src="raaye-dark.png"
+                            alt="Raaye Logo"
+                            className="h-9 w-auto group-hover:scale-105 transition-transform"
+                        />
+                    </div>
+
+                    {/* <div className="flex flex-wrap justify-center gap-8 text-sm font-semibold text-slate-500">
+                    <a href="#" className="hover:text-[#0066FF] transition-colors" title="Privacy Policy">Privacy Policy</a>
+                    <a href="#" className="hover:text-[#0066FF] transition-colors" title="Terms of Service">Terms of Service</a>
+                    <a href="#" className="hover:text-[#0066FF] transition-colors" title="Contact Us">Contact</a>
+                  </div>*/}
+                 
+                  <p className="text-sm font-medium text-slate-400">
+                    © 2026 Raaye. All rights reserved.
+                  </p>
+                </div>
+              </footer>
+
+              {/* Custom CSS for animations */}
+              <style dangerouslySetInnerHTML={{ __html: `
+                @keyframes float {
+                  0%, 100% { transform: translateY(0) translateX(0); }
+                  50% { transform: translateY(-15px) translateX(5px); }
+                }
+                @keyframes float-delayed {
+                  0%, 100% { transform: translateY(0) translateX(0); }
+                  50% { transform: translateY(15px) translateX(-5px); }
+                }
+                @keyframes float-slow {
+                  0%, 100% { transform: translateY(0); }
+                  50% { transform: translateY(-10px); }
+                }
+                @keyframes cursor-move {
+                  0%, 100% { transform: translate(0, 0); }
+                  25% { transform: translate(20px, -30px); }
+                  75% { transform: translate(-10px, -15px); }
+                }
+                .animate-float { animation: float 6s ease-in-out infinite; }
+                .animate-float-delayed { animation: float-delayed 8s ease-in-out infinite; }
+                .animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
+                .animate-bounce-slow { animation: float 7s ease-in-out infinite reverse; }
+                .animate-cursor { animation: cursor-move 10s ease-in-out infinite; }
+                .scrollbar-hide::-webkit-scrollbar { display: none; }
+                .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+              `}} />
+            </div>
+          );
+        };
+
+        // 4. Render it to the screen!
+        const root = createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
