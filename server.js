@@ -19,6 +19,15 @@ const server = http.createServer((req, res) => {
         const filename = parsedUrl.pathname.substring('/linkedin-growth-engine/'.length);
         filePath = path.join(__dirname, 'linkedin-growth-engine', filename);
     }
+    // Route: /v3 and /v3/ -> v3/index.html
+    else if (parsedUrl.pathname === '/v3' || parsedUrl.pathname === '/v3/') {
+        filePath = path.join(__dirname, 'v3', 'index.html');
+    }
+    // Route: /v3/* -> v3/*
+    else if (parsedUrl.pathname.startsWith('/v3/')) {
+        const filename = parsedUrl.pathname.substring('/v3/'.length);
+        filePath = path.join(__dirname, 'v3', filename);
+    }
     // Route: / -> index.html (root)
     else if (parsedUrl.pathname === '/' || parsedUrl.pathname === '') {
         filePath = path.join(__dirname, 'index.html');
@@ -59,5 +68,6 @@ server.listen(PORT, HOST, () => {
     console.log(`\n✨ Raaye Web Server is running!\n`);
     console.log(`📝  Main Site:     http://${HOST}:${PORT}/`);
     console.log(`📝  LinkedIn Growth: http://${HOST}:${PORT}/linkedin-growth-engine/`);
+    console.log(`📝  LinkedIn Growth: http://${HOST}:${PORT}/v3/`);
     console.log(`\n✅ Press Ctrl + C to stop the server\n`);
 });
